@@ -1,4 +1,22 @@
-.Dictionary {
-  color: blue;
-  margin: 50px 50px;
+a {
+  color: #0e4768;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f5edf7;
+}
+
+.Dictionary input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ddd;
+}
+
+.Dictionary section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  padding: 30px;
 }
