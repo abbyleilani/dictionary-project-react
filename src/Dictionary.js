@@ -4,8 +4,9 @@ import Results from "./Results";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [keyWord, setKeyWord] = useState("");
+  const [keyWord, setKeyWord] = useState("sunset");
   const [results, setResults] = useState(null);
+  let [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
     // console.log(response.data[0])
@@ -15,7 +16,6 @@ export default function Dictionary() {
 
   function search(event) {
     event.preventDefault();
-
     // documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
     axios.get(apiUrl).then(handleResponse);
@@ -25,14 +25,34 @@ export default function Dictionary() {
     setKeyWord(event.target.value);
   }
 
-  return (
-    <div className="Dictionary">
-      <section>
-        <form onSubmit={search}>
-          <input type="search" onChange={handleKeyWordChange} />
-        </form>
-      </section>
-      <Results results={results} />
-    </div>
-  );
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function load() {
+    setLoaded(true);
+    search();
+  }
+
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <div className="greeting">What word do you want to look up?</div>
+        <section>
+          <form onSubmit={handleSubmit}>
+            <input type="search" onChange={handleKeyWordChange} />
+          </form>
+          <div className="hint">
+            {" "}
+            suggested words: sunset, wine, yoga, plant...
+          </div>
+        </section>
+        <Results results={results} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading";
+  }
 }

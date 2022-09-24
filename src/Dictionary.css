@@ -7,10 +7,22 @@ body {
   background-color: #f5edf7;
 }
 
+.Dictionary .greeting {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Dictionary .hint {
+  font-size: 11px;
+  margin-top: 5px;
+}
+
 .Dictionary input {
   width: 100%;
   padding: 6px 8px;
   border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
 }
 
 .Dictionary section {
