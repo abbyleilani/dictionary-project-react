@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import "./Dictionary.css";
+import "./images/dictionaryLogo.png";
 
 export default function Dictionary() {
   const [keyWord, setKeyWord] = useState("sunset");
@@ -14,15 +15,14 @@ export default function Dictionary() {
     setResults(response.data[0]);
   }
 
+  function handleKeyWordChange(event) {
+    setKeyWord(event.target.value);
+  }
+
   function search(event) {
-    event.preventDefault();
     // documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
     axios.get(apiUrl).then(handleResponse);
-  }
-
-  function handleKeyWordChange(event) {
-    setKeyWord(event.target.value);
   }
 
   function handleSubmit(event) {
@@ -38,15 +38,12 @@ export default function Dictionary() {
   if (loaded) {
     return (
       <div className="Dictionary">
-        <div className="greeting">What word do you want to look up?</div>
         <section>
+          <img src="src/images/dictionaryLogo.png" alt="logo" />
           <form onSubmit={handleSubmit}>
             <input type="search" onChange={handleKeyWordChange} />
           </form>
-          <div className="hint">
-            {" "}
-            suggested words: sunset, wine, yoga, plant...
-          </div>
+          <div className="hint"> suggested words: alien, star, quirky...</div>
         </section>
         <Results results={results} />
       </div>

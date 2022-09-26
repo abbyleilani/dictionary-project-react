@@ -4,12 +4,14 @@ a {
 }
 
 body {
-  background-color: #f5edf7;
+  background-color: #ece8ed;
 }
 
-.Dictionary .greeting {
+.Dictionary h1 {
   text-align: center;
   font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .Dictionary .hint {
@@ -28,7 +30,6 @@ body {
 .Dictionary section {
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 10px auto;
   padding: 30px;
 }
