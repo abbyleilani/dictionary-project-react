@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
 import "./Dictionary.css";
-import "./images/dictionaryLogo.png";
 
 export default function Dictionary() {
   const [keyWord, setKeyWord] = useState("sunset");
@@ -39,7 +38,6 @@ export default function Dictionary() {
     return (
       <div className="Dictionary">
         <section>
-          <img src="src/images/dictionaryLogo.png" alt="logo" />
           <form onSubmit={handleSubmit}>
             <input type="search" onChange={handleKeyWordChange} />
           </form>
