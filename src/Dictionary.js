@@ -37,13 +37,15 @@ export default function Dictionary() {
   if (loaded) {
     return (
       <div className="Dictionary">
-        <section>
-          <form onSubmit={handleSubmit}>
-            <input type="search" onChange={handleKeyWordChange} />
-          </form>
-          <div className="hint"> suggested words: alien, star, quirky...</div>
-        </section>
-        <Results results={results} />
+        <div className="row">
+          <section className="col-6">
+            <form onSubmit={handleSubmit}>
+              <input type="search" onChange={handleKeyWordChange} />
+            </form>
+            <div className="hint"> suggested words: alien, star, cherry...</div>
+          </section>
+          <Results results={results} />
+        </div>
       </div>
     );
   } else {

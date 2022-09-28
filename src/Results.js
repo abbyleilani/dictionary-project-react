@@ -6,8 +6,8 @@ import "./Results.css";
 export default function Results(props) {
   if (props.results) {
     return (
-      <div className="Results">
-        <section>
+      <div className="Results row">
+        <section className="col-4">
           <h2> {props.results.word} </h2>
           {props.results.phonetics
             .filter((phonetic) => phonetic.audio !== "")
@@ -22,7 +22,7 @@ export default function Results(props) {
         </section>
         {props.results.meanings.map(function (meaning, index) {
           return (
-            <section key={index}>
+            <section key={index} className="col-4">
               <Meaning meaning={meaning} />{" "}
             </section>
           );
