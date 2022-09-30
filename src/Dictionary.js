@@ -38,7 +38,7 @@ export default function Dictionary() {
     return (
       <div className="Dictionary">
         <div className="row">
-          <section className="col-6">
+          <section className="col-6 searchBar">
             <form onSubmit={handleSubmit}>
               <input type="search" onChange={handleKeyWordChange} />
             </form>

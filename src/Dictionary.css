@@ -3,25 +3,22 @@ a {
   text-decoration: none;
 }
 
-body {
-  background-color: #ece8ed;
-}
-
 .Dictionary .hint {
-  font-size: 11px;
+  font-size: 10px;
   margin-top: 5px;
+  text-align: center;
 }
 
 .Dictionary input {
   width: 100%;
   padding: 6px 8px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 20px;
 }
 
-.Dictionary section {
+.Dictionary .searchBar {
   background-color: white;
-  border-radius: 8px;
-  margin: 10px auto;
+  border-radius: 15px;
+  margin: 0 auto;
   padding: 30px;
 }
