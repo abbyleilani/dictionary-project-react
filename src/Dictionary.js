@@ -25,7 +25,7 @@ export default function Dictionary() {
     setKeyWord(event.target.value);
   }
 
-  function search(event) {
+  function search() {
     // documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
     axios.get(apiUrl).then(handleDictionaryResponse);
@@ -41,7 +41,7 @@ export default function Dictionary() {
     search();
   }
 
-  let pexelsApiKey = "563492ad6f91700001000001281ec43e36c246d79e5039db049e6023";
+  let pexelsApiKey = "563492ad6f9170000100000157e22631d7f54f8db1a07ae59c04f4e0";
   let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=1`;
   let headers = { Authorization: `Bearer ${pexelsApiKey}` };
   axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
@@ -56,9 +56,8 @@ export default function Dictionary() {
             </form>
             <div className="hint"> suggested words: alien, star, cherry...</div>
           </section>
-          <div>
-            <Photos photos={photos} />
-          </div>
+          <div></div>
+          <Photos photos={photos} />
           <Results results={results} />
         </div>
       </div>
