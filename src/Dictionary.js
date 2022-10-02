@@ -5,7 +5,7 @@ import Photos from "./Photos";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [keyWord, setKeyWord] = useState("sunset");
+  const [keyWord, setKeyWord] = useState("alien");
   const [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
@@ -25,10 +25,16 @@ export default function Dictionary() {
     setKeyWord(event.target.value);
   }
 
-  function search() {
+  function search(event) {
     // documentation: https://dictionaryapi.dev/
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyWord}`;
     axios.get(apiUrl).then(handleDictionaryResponse);
+
+    let pexelsApiKey =
+      "563492ad6f91700001000001281ec43e36c246d79e5039db049e6023";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=8`;
+    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
+    axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
 
   function handleSubmit(event) {
@@ -41,11 +47,6 @@ export default function Dictionary() {
     search();
   }
 
-  let pexelsApiKey = "563492ad6f9170000100000157e22631d7f54f8db1a07ae59c04f4e0";
-  let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyWord}&per_page=1`;
-  let headers = { Authorization: `Bearer ${pexelsApiKey}` };
-  axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
-
   if (loaded) {
     return (
       <div className="Dictionary">
@@ -56,8 +57,9 @@ export default function Dictionary() {
             </form>
             <div className="hint"> suggested words: alien, star, cherry...</div>
           </section>
-          <div></div>
-          <Photos photos={photos} />
+          <div>
+            <Photos photos={photos} />
+          </div>
           <Results results={results} />
         </div>
       </div>
