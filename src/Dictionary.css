@@ -1,12 +1,15 @@
 a {
-  color: #0e4768;
+  color: white;
   text-decoration: none;
 }
 
 .Dictionary .hint {
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 5px;
   text-align: center;
+  color: white;
+  font-family: serif;
+  font-style: italic;
 }
 
 .Dictionary input {
@@ -17,8 +20,22 @@ a {
 }
 
 .Dictionary .searchBar {
-  background-color: white;
+  background-color: black;
   border-radius: 15px;
   margin: 0 auto;
   padding: 30px;
+}
+
+/* iPhone media query */
+@media only screen and (max-width: 375px) {
+  .Dictionary input {
+    width: 100%;
+  }
+  .Dictionary .hint {
+    font-size: 12px;
+  }
+  .Dictionary .searchBar {
+    padding: 15px;
+    text-align: center;
+  }
 }

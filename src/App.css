@@ -1,5 +1,8 @@
 .App {
   margin: 50px 50px;
+  color: white;
+  font-family: serif;
+  font-style: italic;
 }
 
 .App .dictionaryLogo {
@@ -7,4 +10,16 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* iPhone media query */
+@media only screen and (max-width: 414px) {
+  .App {
+    font-size: 10px;
+    margin: 10px;
+  }
+  .App .dictionaryLogo {
+    display: block;
+    max-width: 300px;
+  }
 }
