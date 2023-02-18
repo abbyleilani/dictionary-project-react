@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <img
-        src="./images/dictionaryLogo.svg"
+        src="./images/dictionaryLogo.png"
         alt="logo"
         className="dictionaryLogo"
       />

@@ -7,7 +7,7 @@ export default function Phonetic(props) {
     <div className="Phonetic">
       <a href={props.phonetic.audio} target="_blank" rel="noreferrer">
         <img
-          src="./images/phoneticGraphic.svg"
+          src="./images/phoneticGraphic.png"
           alt="logo"
           className="phoneticGraphic"
         />
